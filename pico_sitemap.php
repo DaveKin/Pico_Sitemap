@@ -21,13 +21,15 @@ class Pico_Sitemap {
 	}
 	
 	public function get_pages(&$pages, &$current_page, &$prev_page, &$next_page){
-		$xml = '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
-		foreach( $pages as $page ){
-			$xml .= '<url><loc>'.$page['url'].'</loc></url>';
-		}	
-		$xml .= '</urlset>';
-		header('Content-Type: text/xml');
-		die($xml);
+		if($this->is_sitemap){
+			$xml = '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+			foreach( $pages as $page ){
+				$xml .= '<url><loc>'.$page['url'].'</loc></url>';
+			}	
+			$xml .= '</urlset>';
+			header('Content-Type: text/xml');
+			die($xml);
+		}
 	}
 
 }
