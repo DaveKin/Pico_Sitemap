@@ -22,6 +22,8 @@ class Pico_Sitemap {
 	
 	public function get_pages(&$pages, &$current_page, &$prev_page, &$next_page){
 		if($this->is_sitemap){
+			header($_SERVER['SERVER_PROTOCOL'].' 200 OK');
+			header('Content-Type: application/xml; charset=UTF-8');
 			$xml = '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
 			foreach( $pages as $page ){
 				$xml .= '<url><loc>'.$page['url'].'</loc></url>';
