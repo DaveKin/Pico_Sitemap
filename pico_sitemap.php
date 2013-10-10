@@ -28,6 +28,7 @@ class Pico_Sitemap {
 			}	
 			$xml .= '</urlset>';
 			header('Content-Type: text/xml');
+			header($_SERVER['SERVER_PROTOCOL'].' 200 OK');
 			die($xml);
 		}
 	}
