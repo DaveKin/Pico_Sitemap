@@ -1,13 +1,17 @@
 Pico Sitemap
 ============
 
-[Pico][1] plugin to generate an [xml sitemap][2].
+PicoXMLSitemap is a [Pico 1.0-compatible ][1] plugin used to automatically generate a valid [xml sitemap][2].
 
-##Instructions
+## Instructions
 
-* Place the pico_sitemap.php into your plugins directory.
-* Browse to sitemap.xml in your site root.
-* Take a break, your work is done.
+* Place the `PicoXMLSitemap.php` into your `plugins` directory.
 
-[1]: http://pico.dev7studios.com/
+* Place `$config['PicoXMLSitemap.enabled'] = true;` in your `config/config.php`
+
+* Browse to `http://yoursite.com/?sitemap.xml`
+
+* Take a break, your work is done!
+
+[1]: http://picocms.org/
 [2]: http://www.sitemaps.org/
