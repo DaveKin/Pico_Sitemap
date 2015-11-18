@@ -9,7 +9,8 @@
 * Instructions
 * - Place the `PicoXMLSitemap.php` into your `plugins` directory.
 * - Place `$config['PicoXMLSitemap.enabled'] = true;` in your `config/config.php`
-* - Browse to `http://yoursite.com/?sitemap.xml`
+* - Browse to `http://yoursite.com/?sitemap.xml` or
+*   `http://yoursite.com/sitemap.xml` if you have mod_rewrite enabled.
 * - Take a break, your work is done!
 *
 * @author Dave Kinsella
@@ -25,15 +26,7 @@ class PicoXMLSitemap extends AbstractPicoPlugin
     * @see AbstractPicoPlugin::$enabled
     * @var boolean
     */
-    protected $enabled = false;
-
-    /**
-    * This plugin depends on ...
-    *
-    * @see AbstractPicoPlugin::$dependsOn
-    * @var string[]
-    */
-    protected $dependsOn = null;
+    protected $enabled = true;
 
     /**
     * Is Sitemap
@@ -89,10 +82,8 @@ class PicoXMLSitemap extends AbstractPicoPlugin
                 //Page URL
                 $xml .= '<url><loc>'.$page['url'].'</loc>';
                 //Page date/last modified
-                if(isset($page['date'])){
+                if(!empty($page['date'])){
                     $xml .= '<lastmod>'.$page['date'].'</lastmod>';
-                }else{
-                    $xml .= '<lastmod/>';
                 }
                 $xml .= '</url>';
             }
