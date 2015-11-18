@@ -7,11 +7,13 @@ PicoXMLSitemap is a [Pico 1.0-compatible ][1] plugin used to automatically gener
 
 * Place the `PicoXMLSitemap.php` into your `plugins` directory.
 
-* Place `$config['PicoXMLSitemap.enabled'] = true;` in your `config/config.php`
-
-* Browse to `http://yoursite.com/?sitemap.xml`
+* Browse to `http://yoursite.com/?sitemap.xml` or `http://yoursite.com/sitemap.xml` if you have mod_rewrite enabled. 
 
 * Take a break, your work is done!
+
+## Note
+
+You can also place `$config['PicoXMLSitemap.enabled'] = false;` in your `config/config.php` to disable the plugin.
 
 [1]: http://picocms.org/
 [2]: http://www.sitemaps.org/
