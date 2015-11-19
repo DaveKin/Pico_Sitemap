@@ -21,14 +21,6 @@
 class PicoXMLSitemap extends AbstractPicoPlugin
 {
     /**
-    * This plugin is enabled by default?
-    *
-    * @see AbstractPicoPlugin::$enabled
-    * @var boolean
-    */
-    protected $enabled = true;
-
-    /**
     * Is Sitemap
     *
     * @var boolean is user requesting the sitemap?
@@ -83,7 +75,7 @@ class PicoXMLSitemap extends AbstractPicoPlugin
                 $xml .= '<url><loc>'.$page['url'].'</loc>';
                 //Page date/last modified
                 if(!empty($page['date'])){
-                    $xml .= '<lastmod>'.$page['date'].'</lastmod>';
+                    $xml .= '<lastmod>'.date('c', $page['time']).'</lastmod>';
                 }
                 $xml .= '</url>';
             }

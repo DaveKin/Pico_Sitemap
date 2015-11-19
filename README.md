@@ -15,7 +15,7 @@ PicoXMLSitemap is a [Pico 1.0-compatible ][1] plugin used to automatically gener
 
 * You can also place `$config['PicoXMLSitemap.enabled'] = false;` in your `config/config.php` to disable the plugin.
 
-* The `Date:` YAML header in your `.md` files, and `$config['date_format']` in your `config/config.php` should be in [W3C Datetime][3] format to prevent errors in your `sitemap.xml`. This format allows you to omit the time portion, if desired, and use YYYY-MM-DD.
+* The `Date:` YAML header in your `.md` files, and `$config['date_format']` in your `config/config.php` should match. The plugin will encode this date to be be in [W3C Datetime][3] format. This format allows you to omit the time portion, if desired, and use YYYY-MM-DD.
 
     For more information see: [sitemaps.org][4]
 
