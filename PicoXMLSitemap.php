@@ -65,10 +65,13 @@ class PicoXMLSitemap extends AbstractPicoPlugin
         if($this->is_sitemap){
             //Sitemap found, 200 OK
             header($_SERVER['SERVER_PROTOCOL'].' 200 OK');
-            //Set content-type to application/xml
-            header('Content-Type: application/xml; charset=UTF-8');
+            //Set content-type to text/xml
+            header('Content-Type: text/xml; charset=UTF-8');
             //XML Start
-            $xml = '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+            $xml = '<?xml version="1.0" encoding="UTF-8"?>';
+            $xml .= '<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"';
+            $xml .= ' xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"';
+            $xml .= ' xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
             //Page loop
             foreach( $pages as $page ){
                 //Page URL
@@ -81,8 +84,6 @@ class PicoXMLSitemap extends AbstractPicoPlugin
             }
             //XML End
             $xml .= '</urlset>';
-            //Set content-type to text/xml
-            header('Content-Type: text/xml');
             //Show generated sitemap
             die($xml);
         }
