@@ -71,13 +71,16 @@ class PicoXMLSitemap extends AbstractPicoPlugin
             $xml = '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
             //Page loop
             foreach( $pages as $page ){
-                //Page URL
-                $xml .= '<url><loc>'.$page['url'].'</loc>';
-                //Page date/last modified
-                if(!empty($page['date'])){
-                    $xml .= '<lastmod>'.date('c', $page['time']).'</lastmod>';
+                //Don't add pages where the directory or filename starts with '_'
+                if (strpos($page['url'], "/_") === false) {
+                  //Page URL
+                  $xml .= '<url><loc>'.$page['url'].'</loc>';
+                  //Page date/last modified
+                  if(!empty($page['date'])){
+                      $xml .= '<lastmod>'.date('c', $page['time']).'</lastmod>';
+                  }
+                  $xml .= '</url>';
                 }
-                $xml .= '</url>';
             }
             //XML End
             $xml .= '</urlset>';
